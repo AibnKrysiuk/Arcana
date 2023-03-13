@@ -1,0 +1,15 @@
+# archivos y carpetas generados por el sistema
+node_modules/
+package-lock.json
+*.log
+
+# archivos y carpetas generados por editores de código
+.vscode/
+.idea/
+
+# archivos generados por pruebas
+coverage/
+
+# otros archivos generados automáticamente
+.DS_Store
+Thumbs.db

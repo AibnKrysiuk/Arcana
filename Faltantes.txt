@@ -1,0 +1,33 @@
+cosas que me faltan
+
+Post
+	-Update --->listo
+	-Vista --->listo
+
+Rituals
+	-Update --->listo
+	-Vista --->listo
+
+Potions
+	-Update --->listo
+	-vista --->listo
+
+Codigos
+	-Create --->listo
+	-Update --->listo
+	-Delete --->listo
+	-Funcionalidad --->listo
+		-Ingreso --->listo
+
+Send message
+	-Vista --->listo
+	-Funcionalidad
+	-Delete
+
+Subir Experiencia
+
+Subir link de compra
+
+Ingreso de usuario a Admin. --->listo
+
+Subir a don web

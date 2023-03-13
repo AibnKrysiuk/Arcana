@@ -1,0 +1,161 @@
+$offcanvas-bg-color: red;
+$color-fuego-1: rgb(255, 72, 0);
+$color-fuego-2: rgb(255, 187, 0);
+$color-tierra-1: rgb(8, 97, 8);
+$color-tierra-2: rgb(64, 233, 64);
+.circle {
+    position: relative;
+    height: 450px;
+    width: 80%;
+    background-color: transparent;
+    display: flex;
+}
+.portal {
+    position: relative;
+    height: 75px;
+    width: 75px;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: black;
+}
+.img {
+    height: 90px;
+    width: 160px;
+    position: relative;
+    margin-left: -43px;
+    margin-top: -9px;
+}
+@mixin bolita($color-portal: whitesmoke) {
+    span {
+        display: block;
+        position: absolute;
+        top: calc(50% - 2px);
+        left: 50%;
+        width: 50%;
+        height: 4px;
+        background: transparent;
+        transform-origin: left;
+        animation: animate 9s linear infinite;
+    }  
+    span:before {
+        content: "";
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background:$color-portal;
+        top: -4px;
+        right: -6px;
+        box-shadow: 0 0 10px $color-portal,
+                    0 0 20px $color-portal,
+                    0 0 40px $color-portal,
+                    0 0 60px $color-portal,
+                    0 0 80px $color-portal,
+                    0 0 100px $color-portal;
+    }
+}
+@mixin portalColorAndAnimation($color1:$color-fuego-1,$color2:$color-fuego-2,$direction:normal) {
+    animation: flotar 11s infinite linear;
+    animation-direction: $direction;
+    box-shadow: 0 0 10px $color1,
+                0 0 20px $color1,
+                0 0 40px $color1,
+                0 0 60px $color2,
+                0 0 80px $color2,
+                0 0 100px $color2;
+}
+@keyframes animate {
+    0% {
+      transform: rotate(45deg);
+    }
+    100% {
+      transform: rotate(405deg);
+    }
+}
+@keyframes rotar {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes flotar {
+    from { 
+        transform: rotate(0deg) translate(-25px) rotate(0deg);
+    }
+    to { 
+        transform: rotate(360deg) translate(-25px) rotate(-360deg);
+    }
+}
+//fuego
+.portal:nth-child(2) {
+    left: 85%;
+    @include portalColorAndAnimation($color-fuego-1,$color-fuego-2,reverse);
+    @include bolita($color-fuego-1);
+}
+//agua
+.portal:nth-child(3) {
+    left: 78%;
+    top: 83%;
+    @include portalColorAndAnimation(skyblue,blue,normal);
+    @include bolita(skyblue);
+}
+//tierra
+.portal:nth-child(4) {
+    left:-21.5%;
+    top:83%;
+    @include portalColorAndAnimation($color-tierra-2,$color-tierra-1,reverse);
+    @include bolita($color-tierra-1);
+}
+//aire
+.portal:nth-child(1) {
+    @include portalColorAndAnimation(whitesmoke, skyblue);
+    @include bolita(whitesmoke);
+}
+
+@media screen and(max-width: 952px) {
+    /*.portal {
+        display: none;
+    }*/
+    .portal {
+        height: 45px;
+        width: 45px;
+    }
+    .circle {
+        height: 300px;
+        width: 300px;
+        border-radius: 50%;
+        //border: 1px solid whitesmoke;
+        animation: rotar 60s infinite linear;
+    }
+    .img {
+        height: 54px;
+        width: 96px;
+        position: relative;
+        margin-left: -26px;
+        margin-top: -5px;
+    }
+    .portal:nth-child(1){
+        top:42%;
+        left: -6%;
+        animation: none;
+    }
+    .portal:nth-child(2){
+        top:42%;
+        left: 76%;
+        animation: none;
+    }
+    .portal:nth-child(3){
+        top:-9%;
+        left: 12%;
+        animation:none;
+    }
+    .portal:nth-child(4){
+        top:90%;
+        left: -1%;
+        animation:none;
+    }
+}
+

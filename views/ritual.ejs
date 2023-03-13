@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="/images/icon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Rituales</title>
+</head>
+<body class="fondo-tierra">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark overflow-hidden" aria-label="Offcanvas navbar large">
+          <div class="container-fluid overflow-hidden">
+            <a href="/">
+    
+              <div class="logo">
+                Arcana</div>
+              </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar2" aria-controls="offcanvasNavbar2">
+              <img class="iconn" src="/images/logo.png" alt="">
+            </button>
+            <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasNavbar2" aria-labelledby="offcanvasNavbar2Label">
+              <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasNavbar2Label">ARCANA</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+              </div>
+              <div class="offcanvas-body">
+                <ul class="navbar-nav flex-grow-1 pe-3 justify-content-between">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/portal_aire">Astrologia Reflexiva</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/portal_tierra">Rituales y Pociones</a>
+                  </li>
+                  <div class="logo2">
+                    <a class="text-decoration-none text-light" href="/">
+                    ARCANA</a></div>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/contacto">Contacto</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/portal_agua">Viajes Autohipnoticos</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </nav>
+    </header>
+    <div class="container">
+      <div class="p-4 p-md-5 mb-4 text-white rounded hero-trans">
+          <div class="col-md-6 px-0">
+            <h1 class="display-4"><strong>RITUALES</strong></h1>
+            <h2 class="d-flex justify-content-end">El que mira sin ver solo ve tierra</h2>
+          </div>
+      </div>
+      <div class="row mb-2 ">
+          <% for (let i = 0; i < ritual.length; i++) { %>
+          <div class="col-md-6 ">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative text-white rounded fonddd">
+              <div class="col p-4 d-flex flex-column position-static">
+                <h3 class="mb-0"><%= ritual[i].title %></h3>
+                <div class="mb-1 text-muted"><%= ritual[i].date %></div>
+                <p class="card-text mb-auto"><%= ritual[i].text.slice(0, 50) %>...</p>
+                <button type="button" class="cssbuttons-io-button  w-auto container" data-bs-toggle="modal" data-bs-target="#exampleModal<%= ritual[i].id %>"> CONTINUAR LEYENDO
+                  <div class="icon">
+                    <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path></svg>
+                  </div>
+                </button>
+              </div>
+            </div>
+          </div>
+        
+  
+  <!-- Modal 1-->
+  <div class="modal fade" id="exampleModal<%= ritual[i].id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel"><%= ritual[i].title %></h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+    <p><%= ritual[i].text %></p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+    </div>
+  </div>
+  </div>
+  </div>
+  <% } %>
+
+  <div class="container">
+    <ul class="control-audio">
+      <li class="ms-3 mrr"><a class="text-light" href="#"><i class="bi bi-play"></i></svg></a></li>
+      <li class="ms-3  mrr"><a class="text-light" href="#"><i class="bi bi-pause-fill"></i></i></svg></a></li>
+    </ul>
+    <audio src="/audio/Road Home - VYEN PORTAL TIERRA.mp3" id="myAudio" autoplay="autoplay" loop="loop"></audio>
+  </div>
+
+  <div class="container">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3  row flex-row-reverse">
+      <strong class="col mb-0 pe-0 text-light">
+  
+        <p class="text-light">&copy; 2022 Arcana</p>
+      </strong>
+  
+      <a href="/" class="col-sm-5 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+        <img src="/images/logo.png" style=" width: 112px;">
+      </a>
+  
+      <ul class="col nav justify-content-end list-unstyled d-flex text-light">
+        <li class="ms-3"><a class="text-light" href="#"><i class="bi bi-instagram"></i><use xlink:href="#twitter"/></svg></a></li>
+        <li class="ms-3"><a class="text-light" href="#"><i class="bi bi-whatsapp"></i><use xlink:href="#instagram"/></svg></a></li>
+        <li class="ms-3"><a class="text-light" href="#"><i class="bi bi-facebook"></i></svg></a></li>
+      </ul>
+    </footer>
+
+  </div>
+
+  <script src="/scripts/scripts.js"></script>
+</body>
+</html>

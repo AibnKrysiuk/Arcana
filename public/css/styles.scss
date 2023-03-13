@@ -1,0 +1,55 @@
+@import '../css/parciales/fondos';
+@import '../css/parciales/navBar';
+@import '../css/parciales/astrologia';
+@import '../css/parciales/rituales';
+@import '../css/parciales/contacto';
+@import '../css/parciales/experiencia';
+@import '../css/parciales/index';
+@import '../css/parciales/buttons';
+
+
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url("../images/espacio.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+.fondo-agua {
+    background-image: url("../images/agua.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    @include color(black);
+}
+.fondo-fuego {
+    background-image: url("../images/fuego.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    @include color(whitesmoke);
+}
+.fondo-tierra {
+    background-image: url("../images/bosque.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+
+.fondo-aire {
+    background-image: url("../images/aire.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    @include color(black);
+}
+
+
+
+

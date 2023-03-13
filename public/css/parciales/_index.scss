@@ -1,0 +1,46 @@
+@use 'portales';
+
+.contenedor {
+    position: relative;
+    height: 700px;
+    background-color: transparent;
+    //border: 3px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.contenedor.down {
+    //opacity: 0.5;
+    display: none;
+}
+.portalCentral {
+    //border: 3px solid ghostwhite;
+    position:absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    height: 430px;
+    width: 15px;
+    //animation-iteration-count: 1;
+    //animation-fill-mode: forwards;
+}
+.img-arcana{
+    height: 540px;
+    width: 540px;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+@media screen and(max-width: 952px) {
+    .contenedor {
+        height: 450px;
+    }
+    .portalCentral {
+        height: 330px;
+    }
+    .img-arcana {
+        height: 370px;
+        width: 370px;
+    }
+}

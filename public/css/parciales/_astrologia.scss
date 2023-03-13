@@ -1,0 +1,258 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+$background-color: #2fd4dc;
+$card__border-radius: 20px;
+$card__modall-max-width: 2000px;
+$card__modall-height: 90vh;
+$card__modall-header-height: 300px;
+
+html, body {
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+  margin: 0%;
+  padding: 0%;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+.containerr {
+  background-image: url(/img/aire.jpg);
+  background-position: center;
+  background-size:cover;
+  background-repeat: no-repeat;
+  padding: 2em;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+
+
+.center-image {
+  width: 100%;
+  min-height: 100%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  object-fit: cover;
+}
+
+
+.card-slider {
+  margin: auto;
+  width: 100%;
+}
+
+.card {
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  height: 365px !important;
+  box-shadow: 0 30px 50px -25px rgba(0,0,0,0.25);
+  > * {
+    transition: opacity 350ms;
+  }
+  
+  &--opened > *{
+    opacity: 0;
+  }
+}
+
+.card__background {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  background: black;
+  z-index: -1;
+  text-align: left;
+
+  
+  img {
+    @extend .center-image;
+  }
+  
+  &::after {
+    content:'';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+}
+
+.card__category {
+  text-transform: uppercase;
+  color: #fff;
+  background: #971414be;
+  font-size: 0.85em;
+  font-weight: 600;
+  padding: 0.2em 0.5em 0.25em;
+}
+
+.card__title {
+  text-transform: uppercase;
+  margin: 0.5em 0;
+  color: #000000;
+}
+
+.card__duration {
+  color: #ffffff;
+}
+
+.modall-wrapperr, .overlayy {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.modall-wrapperr {
+  display: flex;
+}
+
+.overlayy {
+  background: rgba(0,0,0,0.5);
+  transition: opacity 150ms ease;
+}
+
+.modall {
+  overflow: hidden;
+  position: relative;
+  margin: auto;
+  width: 90vw;
+  height: $card__modall-height;
+  max-width: 2000px !important;
+  background: #fff;
+  border-radius: $card__border-radius;
+}
+
+.modall__scroll-area {
+  height: inherit;
+  overflow: auto;
+  border-radius: inherit;
+  position: relative;
+  z-index: 1;
+}
+
+.modall__close-button {
+  background: transparent;
+  border: none;
+  margin-bottom: auto;
+  color: #2e5f80;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 2em;
+  z-index: 2;
+}
+
+.modall__header {
+  text-align: center;
+  position: relative;
+  display: flex;
+  padding: .5em;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  min-height: $card__modall-header-height;
+  z-index: 1;
+}
+
+.modall__content {
+  padding: 2em;
+  color: black;
+  line-height: 1.5;
+  background-image: url(/img/aire.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+}
+
+.font-whid{
+  width: 30px;
+}
+
+.offcanvas{
+  padding: 15px;
+  background-color: #0000005b !important;
+  
+  color: white !important;
+  font-size: 20px;
+}
+.offcanvass{
+  padding: 15px;
+  color: black !important;
+  
+  background-color: #ffffff94 !important;
+  font-size: 20px;
+}
+
+.btnnn{
+padding: 9px;
+background-color: #E0E0E0;
+color: #565656;
+border-color: #565656;
+border-radius: 5px;
+padding-left: 25px;
+padding-right: 25px;
+}
+
+.btnnn:hover {
+  background-color: #565656;
+  color: #E0E0E0;
+  border-color: #565656;
+ }
+
+ .btnn{
+  padding: 7px;
+background-color: #000000;
+color: #ffffff;
+border-color: #565656;
+border-radius: 5px;
+padding-left: 30px;
+padding-right: 30px;
+ }
+
+
+ .card-hover:hover{
+  background-color: #000000a4;
+ }
+
+ .card-hover:before{
+  opacity: 30%;
+ }
+
+
+
+ .modal-body{
+font-size: 1.3rem;
+ }
+ .card-body{
+  font-size: 1.12rem;
+ }

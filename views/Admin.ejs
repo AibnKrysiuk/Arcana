@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="es-AR" translate="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="google" content="notranslate">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/admin-page.css">
+    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="path/to/your/file.js"></script>
+    <title>ARCANA - ADMIN</title>
+</head>
+<body class="fondo-aire">      
+
+    <div class="container-fluid">
+      <div class="row ">
+        <div class="col-12">
+          <nav class="navbar bg-body-tertiary py-3">
+            <div class="container flex-column flex-md-row">
+              <a class="navbar-brand justify-content-center d-flex arcana-font">ARCANA</a>
+            </div>
+          </nav>
+        </div>
+      </div>
+      <div class="row ">
+        <div class="col-12 col-md-4 col-xxl-2 d-flex flex-column justify-content-center  fondo border-end border-dark ">
+          <nav>
+            <div class="pb-md-4 nav nav-tabs d-flex justify-content-center  flex-md-column flex font-cambio lh-lg" id="nav-tab" role="tablist">
+              <button class="nav-link" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="false">ASTROLOGIA</button>
+              <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">RITUALES</button>
+              <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">POSCIONES</button>
+              <button class="nav-link" id="nav-disabled-tab" data-bs-toggle="tab" data-bs-target="#nav-disabled" type="button" role="tab" aria-controls="nav-disabled" aria-selected="false">CODIGOS</button>
+              <button class="nav-link" id="nav-disabled-tab" data-bs-toggle="tab" data-bs-target="#nav-mensajes" type="button" role="tab" aria-controls="nav-disabled" aria-selected="false">MENSAJES</button>
+            </div>
+          </nav>
+        </div> <!--fin col-4 -->
+        <div class="col-10 col-md-6 col-xxl-8 border-bottom border-dark ">
+          <div class="tab-content" id="nav-tabContent">
+            <!--Post-->
+            <div class="tab-pane fade" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
+              <!-- Posts -->
+                <div class="table-responsive">
+                <table class="table table-striped table-sm border-dark">
+                  <thead>
+                    <tr>
+                      <!--<th scope="col">#ID</th>-->
+                      <th scope="col">Titulo</th>
+                      <th scope="col">Autor</th>
+                      <th scope="col">Fecha</th>
+                      <!--<th scope="col">texto</th>
+                      <th scope="col">Imagen</th> -->
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% for (let i = 0; i < posts.length; i++) { %>
+                    <tr>
+                      
+                      <td><%= posts[i].title %></td>
+                      <td><%= posts[i].autor %></td>
+                      <td><%= posts[i].date %></td>
+                      <!--<td>text</td>
+                      <td>text</td> -->
+                      <td class="espcio" ><button class="btn btn-primary p" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal<%= posts[i].id %>"><i class="bi bi-eye"></i></button></td>
+                      <td class="espcio" ><button class="btn btn-success p" type="button" data-bs-toggle="modal" data-bs-target="#updatePost<%= posts[i].id %>"><i class="bi bi-file-earmark-arrow-up"></i></button></td>
+                      <td class="espcio"><button class="btn btn-danger p" type="button" onclick="confirmDeletePost('<%= posts[i].id %>')"><i class="bi bi-trash"></i></button></td>
+                    </tr>
+
+                    <!-- vista -->
+                    <div class="modal fade" id="exampleModal<%= posts[i].id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog  .modal-dialog-scrollable d-flex justify-content-center modal-xl">
+                        <div class="modal-content">
+                          <div class="modal-header d-flex flex-column">
+                            <h2 class="card__category">ASTROLOGIA REFLEXIVA</h2>
+                            <h1 class="card__title"><%= posts[i].title %></h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            <div style="display: flex; justify-content: center;">
+                              <img src="/images/<%= posts[i].image %>" alt="" style="width: 25%; ">
+                            </div>
+                            <p><%= posts[i].text %></p>
+                          </div>
+                          <div class="modal-footer">
+                            <h3 class="card-title h5"><%= posts[i].autor %></h3>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!--Modal Update-->
+                    <div class="modal fade" id="updatePost<%= posts[i].id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog  .modal-dialog-scrollable d-flex justify-content-center modal-xl">
+                        <div class="modal-content">
+                          <form action="/Admin/post/<%= posts[i].id %>" method="POST" enctype="multipart/form-data">
+                            <input type="hidden" name="_method" value="PATCH">
+                            <div class="form-group">
+                              <label for="title">Title</label>
+                              <input type="text" class="form-control" id="title" name="title" value="<%= posts[i].title %>">
+                            </div>
+                            <div class="form-group">
+                              <label for="autor">Autor</label>
+                              <input type="text" class="form-control" id="autor" name="autor" value="<%= posts[i].autor %>">
+                            </div>
+                            <div class="form-group">
+                              <label for="text">Text</label>
+                              <textarea class="form-control" id="text" name="text" rows="6"><%= posts[i].text %></textarea>
+                            </div>
+                            <div class="form-group">
+                              <label for="date">Date</label>
+                              <input type="date" class="form-control" id="date" name="date" value="<%= posts[i].date %>">
+                            </div>
+                            <div class="form-group">
+                              <label for="image">Image</label>
+                              <input type="file" class="form-control" id="image" name="file">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Update</button>
+                          </form>
+                          
+                        </div>
+                      </div>
+                    </div>
+                    <% } %>
+                    <!-- fin vista -->
+                  </tbody>
+                </table>
+            </div>
+            </div>
+            <!--Pociones-->
+            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
+                <!-- Pociones -->
+                <div class="table-responsive">
+                    <table class="table table-striped table-sm border-dark">
+                      <thead>
+                        <tr>
+                          <!--<th scope="col">#ID</th>-->
+                          <th scope="col">Titulo</th>
+                          <th scope="col">Fecha</th>
+                          <!--<th scope="col">texto</th>
+                          <th scope="col">Imagen</th> -->
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <% for (let i = 0; i < potions.length; i++) { %>
+                        <tr>
+                          <!--<td><b><%= potions[i].id %></b></td> -->
+                          <td><%= potions[i].title %></td>
+                          <td><%= potions[i].date %></td>
+                          <!--<td>text</td>
+                          <td>text</td> -->
+                          <td class="espcio" ><button class="btn btn-primary p" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal<%= potions[i].id %>"><i class="bi bi-eye"></i></button></td>
+                          <td class="espcio" ><button class="btn btn-success p" type="button" data-bs-toggle="modal" data-bs-target="#updatePotion<%= potions[i].id %>"><i class="bi bi-file-earmark-arrow-up"></i></i></button></td>
+                          <td class="espcio"><button class="btn btn-danger p" type="button" onclick="confirmDeletePotions('<%= potions[i].id %>')"><i class="bi bi-trash"></i></button></td>
+                        </tr>
+                        <!--modal vista-->
+                        <div class="modal fade" id="exampleModal<%= potions[i].id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal-dialog  .modal-dialog-scrollable d-flex justify-content-center modal-xl">
+                            <div class="modal-content">
+                              <div class="modal-header d-flex flex-column">
+                                <h2 class="card__category">POCIONES</h2>
+                                <h1 class="card__title"><%= potions[i].title %></h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                              </div>
+                              <div class="modal-body">
+                                <p><%= potions[i].text %></p>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!--Fin modal-->
+
+                        <!--modal update-->
+
+                        <div class="modal fade" id="updatePotion<%= potions[i].id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal-dialog  .modal-dialog-scrollable d-flex justify-content-center modal-xl">
+                            <div class="modal-content">
+                              <form action="/Admin/potion/<%= potions[i].id %>" method="POST" enctype="multipart/form-data">
+                                <input type="hidden" name="_method" value="PATCH">
+                                <div class="form-group">
+                                  <label for="title">Title</label>
+                                  <input type="text" class="form-control" id="title" name="title" value="<%= potions[i].title %>">
+                                </div>
+                                <div class="form-group">
+                                  <label for="text">Text</label>
+                                  <textarea class="form-control" id="text" name="text" rows="6"><%= potions[i].text %></textarea>
+                                </div>
+                                <div class="form-group">
+                                  <label for="date">Date</label>
+                                  <input type="date" class="form-control" id="date" name="date" value="<%= potions[i].date %>">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Update</button>
+                              </form>
+                              
+                            </div>
+                          </div>
+                        </div>
+
+                        <!--fin modal-->
+                        <% } %>
+                      </tbody>
+                      
+                    </table>
+                </div>
+            </div>
+            <!--Rituales-->
+            <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">
+                <div class="table-responsive">
+                    <table class="table table-striped table-sm border-dark">
+                      <thead>
+                        <tr>
+                          <!--<th scope="col">#ID</th>-->
+                          <th scope="col">Titulo</th>
+                          <th scope="col">Fecha</th>
+                          <!--<th scope="col">texto</th>
+                          <th scope="col">Imagen</th> -->
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <% for (let i = 0; i < rituals.length; i++) { %>
+                        <tr>
+                          <!--<td><b><%= rituals[i].id %></b></td> -->
+                          <td><%= rituals[i].title %></td>
+                          <td><%= rituals[i].date %></td>
+                          <!--<td>text</td>
+                          <td>text</td> -->
+                          <td class="espcio" ><button class="btn btn-primary p" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal<%= rituals[i].id %>"><i class="bi bi-eye"></i></button></td>
+                          <td class="espcio" ><button class="btn btn-success p" type="button" data-bs-toggle="modal" data-bs-target="#updateRitual<%= rituals[i].id %>"><i class="bi bi-file-earmark-arrow-up"></i></i></button></td>
+                          <td class="espcio" ><button class="btn btn-danger p" type="button" onclick="confirmDeleteRituals('<%= rituals[i].id %>')"><i class="bi bi-trash"></i></button></td>
+                        </tr>
+                        <div class="modal fade" id="exampleModal<%= rituals[i].id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal-dialog  .modal-dialog-scrollable d-flex justify-content-center modal-xl">
+                            <div class="modal-content">
+                              <div class="modal-header d-flex flex-column">
+                                <h2 class="card__category">RITUALES</h2>
+                                <h1 class="card__title"><%= rituals[i].title %></h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                              </div>
+                              <div class="modal-body">
+                                <p><%= rituals[i].text %></p>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="modal fade" id="updateRitual<%= rituals[i].id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal-dialog  .modal-dialog-scrollable d-flex justify-content-center modal-xl">
+                            <div class="modal-content">
+                              <form action="/Admin/ritual/<%= rituals[i].id %>" method="POST" enctype="multipart/form-data">
+                                <input type="hidden" name="_method" value="PATCH">
+                                <div class="form-group">
+                                  <label for="title">Title</label>
+                                  <input type="text" class="form-control" id="title" name="title" value="<%= rituals[i].title %>">
+                                </div>
+                                <div class="form-group">
+                                  <label for="text">Text</label>
+                                  <textarea class="form-control" id="text" name="text" rows="6"><%= rituals[i].text %></textarea>
+                                </div>
+                                <div class="form-group">
+                                  <label for="date">Date</label>
+                                  <input type="date" class="form-control" id="date" name="date" value="<%= rituals[i].date %>">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Update</button>
+                              </form>                   
+                            </div>
+                          </div>
+                        </div>
+                        <% } %>
+                      </tbody>
+                      
+                    </table>
+                </div>
+            </div>
+            <!--Codigos-->
+            <div class="tab-pane fade" id="nav-disabled" role="tabpanel" aria-labelledby="nav-disabled-tab" tabindex="0">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <!--<th scope="col">#</th>-->
+                    <th scope="col">CODIGOS</th>
+                    <th scope="col">ESTADO</th>
+                    <th scope="col">USOS</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% for (let i = 0; i < codigo.length; i++) { %>
+                  <tr>
+                    <!--<th scope="row"><%= codigo[i].id %></th> -->
+                    <td><%= codigo[i].codigo %></td>
+                    <td>
+                      <% if (codigo[i].estado) { %>
+                        <i class="bi bi-check2 green"></i>
+                      <% } else { %>
+                        <i class="bi bi-x"></i>
+                      <% } %>
+                    </td>
+                    <td><%= codigo[i].usos %></td>
+                    <td class="espcio" ><button class="btn btn-success p" type="button" data-bs-toggle="modal" data-bs-target="#updateCodigo<%= codigo[i].id %>"><i class="bi bi-file-earmark-arrow-up"></i></i></button></td>
+                    <td class="espcio" ><button class="btn btn-danger p" type="button" onclick="confirmDeleteCodigo('<%= codigo[i].id %>')"><i class="bi bi-trash"></i></button></td>
+                  </tr>
+
+                  <div class="modal fade" id="updateCodigo<%= codigo[i].id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog  .modal-dialog-scrollable d-flex justify-content-center modal-xl">
+                      <div class="modal-content">
+                        <form action="/Admin/codigo/<%= codigo[i].id %>" method="POST" enctype="multipart/form-data">
+                          <input type="hidden" name="_method" value="PATCH">
+                          <div class="form-group">
+                            <label for="codigo">Codigo</label>
+                            <input type="text" class="form-control" id="codigo" name="codigo" value="<%= codigo[i].codigo %>">
+                          </div>
+                          <div class="form-group">
+                            <label for="estado">Estado</label>
+                            <select class="form-control" id="estado" name="estado">
+                              <option value="1" <% if (codigo[i].estado === 1) { %>selected<% } %>>Activo</option>
+                              <option value="0" <% if (codigo[i].estado === 0) { %>selected<% } %>>Inactivo</option>
+                            </select>
+                          </div>
+                          <div class="form-group">
+                            <label for="usos">Usos</label>
+                            <input type="number" class="form-control" id="usos" name="usos" value="<%= codigo[i].usos %>">
+                          </div>
+                          <button type="submit" class="btn btn-primary">Update</button>
+                        </form>
+                                           
+                      </div>
+                    </div>
+                  </div>
+                  <% } %>
+                </tbody>
+              </table>
+            </div>
+            <!--Mensajes-->
+            <div class="tab-pane fade" id="nav-mensajes" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
+              <table class="table table-striped table-sm border-dark">
+                <thead>
+                  <tr>
+                    <!--<th scope="col">#ID</th>-->
+                    <th scope="col">Mensajes</th>
+                    <!--<th scope="col">texto</th>
+                    <th scope="col">Imagen</th> -->
+                  </tr>
+                  <tr>
+                    <% if (mensaje.length == 0) { %>
+                      <th scope="col">No hay mensajes</th>
+                    <% } %> 
+                  </tr>
+                </thead>
+                <tbody>
+                  <% for (let i = 0; i < mensaje.length; i++) { %>
+                  <tr>                                       
+                    <td>
+                      <div class="accordion container" id="accordionPanelsStayOpenExample">
+                        <div class="accordion-item d-flex align-content-center">
+                          <div class="d-flex align-items-center">          
+                            <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                              <button class="accordion-button collapsed text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo<%= mensaje[i].id%>" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                              <%= mensaje[i].nombre%>
+                              </button>
+                            </h2>
+                          </div>
+                          <div id="panelsStayOpen-collapseTwo<%= mensaje[i].id%>" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+                            <div class="accordion-body">
+                              <p>E-mail: <%= mensaje[i].mail%></p>
+                              <p><%= mensaje[i].text%></p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                    <!--<td>text</td>
+                    <td>text</td> -->
+                    <td class="espcio"><button class="btn btn-danger p" type="button" onclick="confirmDeleteMensaje('<%= mensaje[i].id %>')"><i class="bi bi-trash"></i></button></td>
+                  </tr>
+                  <% } %>
+            <!-- fin vista -->
+          </tbody>
+        </table>
+                
+            </div>
+          </div>
+        </div><!--fin col-8 -->
+      </div>
+    </div>
+
+    <div class="contenedor">
+      <div class="botones">
+        <button type="button" class="btn btn-success" id="buton" data-bs-toggle="modal" data-bs-target="#exampleModal"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-file-earmark-plus-fill" viewBox="0 0 16 16">
+          <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM8.5 7v1.5H10a.5.5 0 0 1 0 1H8.5V11a.5.5 0 0 1-1 0V9.5H6a.5.5 0 0 1 0-1h1.5V7a.5.5 0 0 1 1 0z"/>
+        </svg><p>Añadir Post</p></button>
+        <button type="button" class="btn btn-success" id="buton" data-bs-toggle="modal" data-bs-target="#modalRituals"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-file-earmark-plus-fill" viewBox="0 0 16 16">
+          <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM8.5 7v1.5H10a.5.5 0 0 1 0 1H8.5V11a.5.5 0 0 1-1 0V9.5H6a.5.5 0 0 1 0-1h1.5V7a.5.5 0 0 1 1 0z"/>
+        </svg><p>Añadir Ritual</p></button>
+        <button type="button" class="btn btn-success" id="buton" data-bs-toggle="modal" data-bs-target="#modalPotions"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-file-earmark-plus-fill" viewBox="0 0 16 16">
+          <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM8.5 7v1.5H10a.5.5 0 0 1 0 1H8.5V11a.5.5 0 0 1-1 0V9.5H6a.5.5 0 0 1 0-1h1.5V7a.5.5 0 0 1 1 0z"/>
+        </svg><p>Añadir Poción</p></button>
+        <button type="button" class="btn btn-success" id="buton" data-bs-toggle="modal" data-bs-target="#modalCodigo"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-file-earmark-plus-fill" viewBox="0 0 16 16">
+          <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM8.5 7v1.5H10a.5.5 0 0 1 0 1H8.5V11a.5.5 0 0 1-1 0V9.5H6a.5.5 0 0 1 0-1h1.5V7a.5.5 0 0 1 1 0z"/>
+        </svg><p>Añadir Código</p></button>
+      </div>
+    </div>
+
+    
+
+    <!-- Modal de Update Post -->
+    
+
+
+    <!-- modal Post -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <form id="addPostForm" method="POST" enctype="multipart/form-data" action="/Admin/post">
+            <div class="modal-header">
+              <h5 class="modal-title" id="addPostModalLabel">Agregar Post</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <!-- <span aria-hidden="true">&times;</span> -->
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <label for="postTitle">Título</label>
+                <input type="text" class="form-control" id="postTitle" name="title" required>
+              </div>
+              <div class="form-group">
+                <label for="postAuthor">Autor</label>
+                <input type="text" class="form-control" id="postAuthor" name="autor" required>
+              </div>
+              <div class="form-group">
+                <label for="postDate">Fecha</label>
+                <input type="date" class="form-control" id="postDate" name="date" required>
+              </div>
+              <div class="form-group">
+                <label for="postText">Texto</label>
+                <textarea class="form-control" id="postText" name="text" rows="3" required></textarea>
+              </div>
+              <div class="form-group">
+                <label for="postImage">Imagen</label>
+                <input type="file" class="form-control-file" id="postImage" name="file" accept="image/*" required>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-primary">Agregar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- finn modal -->
+    <!--modal Pociones-->
+    <div class="modal fade" id="modalPotions" tabindex="-1" aria-labelledby="modalPotionsLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <form id="addPocionForm" method="POST" enctype="multipart/form-data" action="/Admin/potion">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addPocionModalLabel">Agregar Poción</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="pocionTitle">Título</label>
+                    <input type="text" class="form-control" id="pocionTitle" name="title" required>
+                </div>
+                <div class="form-group">
+                    <label for="pocionText">Texto</label>
+                    <textarea class="form-control" id="pocionText" name="text" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="pocionDate">Fecha</label>
+                    <input type="date" class="form-control" id="pocionDate" name="date" required>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Agregar</button>
+            </div>
+        </form>
+        </div>
+      </div>  
+    </div>
+    <!-- Fin modal -->
+
+    <div class="modal fade" id="modalRituals" tabindex="-1" aria-labelledby="modalRitualsLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <form id="addPocionForm" method="POST" enctype="multipart/form-data" action="/Admin/ritual">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addPocionModalLabel">Agregar Ritual</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="pocionTitle">Título</label>
+                    <input type="text" class="form-control" id="pocionTitle" name="title" required>
+                </div>
+                <div class="form-group">
+                    <label for="pocionText">Texto</label>
+                    <textarea class="form-control" id="pocionText" name="text" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="pocionDate">Fecha</label>
+                    <input type="date" class="form-control" id="pocionDate" name="date" required>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Agregar</button>
+            </div>
+        </form>
+        </div>
+      </div>  
+    </div>
+
+    <!-- modal Codigo -->
+    <div class="modal fade" id="modalCodigo" tabindex="-1" aria-labelledby="modalPotionsLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <form id="addCodigoForm" method="POST" enctype="multipart/form-data" action="/Admin/codigo">
+            <div class="modal-header">
+              <h5 class="modal-title" id="addPocionModalLabel">Agregar Codigo</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="form-group">
+                <label for="codigo">Código</label>
+                <input type="text" class="form-control" id="codigo" name="codigo" required>
+            </div>
+            <div class="form-group">
+              <label for="estado">Estado</label>
+              <select class="form-control" id="estado" name="estado" required>
+                  <option value="1">Activo</option>
+                  <option value="0">Inactivo</option>
+              </select>
+            </div>
+            <div class="form-group">
+                <label for="usos">Usos</label>
+                <input type="number" class="form-control" id="usos" name="usos" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </form>
+        </div>
+      </div>
+    </div> 
+<script>
+  const urlParams = new URLSearchParams(window.location.search);
+  const msg = urlParams.get('msg');
+  if (msg) {
+    alert(msg);
+    history.pushState({}, '', window.location.pathname);
+  }
+</script>
+<script src="/scripts/scriptAdmin.js"></script>
+
+<script src="/js/sidebars.js"></script>
+
+
+
+</body>
+</html>

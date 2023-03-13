@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="/images/icon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Contacto</title>
+</head>
+<body class="fondo-fuego">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark overflow-hidden" aria-label="Offcanvas navbar large">
+          <div class="container-fluid overflow-hidden">
+            <a href="./index.html">
+    
+              <div class="logo">
+                Arcana</div>
+              </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar2" aria-controls="offcanvasNavbar2">
+              <img class="iconn" src="/images/logo.png" alt="">
+            </button>
+            <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasNavbar2" aria-labelledby="offcanvasNavbar2Label">
+              <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasNavbar2Label">ARCANA</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+              </div>
+              <div class="offcanvas-body">
+                <ul class="navbar-nav flex-grow-1 pe-3 justify-content-between">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/portal_aire">Astrologia Reflexiva</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/portal_tierra">Rituales y Pociones</a>
+                  </li>
+                  <div class="logo2">
+                    <a class="text-decoration-none text-light" href="/">
+                    ARCANA</a></div>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/contacto">Contacto</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/portal_agua">Viajes Autohipnoticos</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </nav>
+    </header>
+    <main class="form-signin">
+      <div class="container form_card">
+        <form class="container" method="POST" enctype="multipart/form-data" action="/contacto">
+          <h1 class="h3 mb-3 fw-normal text-center">
+            <strong>BIENVENIDAS/OS/ES</strong><br>
+            SOY ARCANA
+          </h1>
+          <div class="container fix2 d-flex">
+            <div class="container fix1 w-100">
+              <div class="fix">
+                <div class="mb-3 w-50 fix">
+                  <label for="nombre">Nombre *</label>
+                  <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Agustin" required>
+                </div>
+                <div class="mb-3 w-50 fix">
+                  <label for="email">Email *</label>
+                  <input type="email" class="form-control" id="email" name="mail" placeholder="agustin@gmail.com" required>
+                </div>
+              </div>
+              <div class="mb-3 w-100">
+                <label for="mensaje" class="form-label">Gracias por recibirme y compartir tu experiencia conmigo y enriquecer nuestros caminos…</label>
+                <textarea class="form-control" id="mensaje" name="text" rows="3" placeholder="Hola Arcana! La experiencia me hizo sentir muy bien, gracias!" required></textarea>
+              </div>
+            </div>
+                  <div class="container w-50 fix3">
+                    <h3 class="fix4">Contacto</h3>
+                      <p><strong>Email :</strong><br>Arcana@gmail.com</p>
+                      <p><strong> Telefonos :</strong> <br> (+54) 2216793983</p>
+                      <p><strong>Dias y horarios :</strong> <br> Lunes de 14 a 18hs <br> Jueves 13 a 16hs</p>
+                  </div>
+              </div>
+                  <div class="d-flex justify-content-around">
+                      <button class=" btnn" type="submit">ENVIAR</button>
+              </div>
+          </form>
+      </div>
+    </main>
+    <div class="container">
+      <ul class="control-audio">
+        <li class="ms-3 mrr"><a class="text-light" href="#"><i class="bi bi-play"></i></svg></a></li>
+        <li class="ms-3  mrr"><a class="text-light" href="#"><i class="bi bi-pause-fill"></i></i></svg></a></li>
+      </ul>
+      <audio src="/audio/Spirit of Fire - Jesse Gallagher PORTAL FUEGO.mp3" id="myAudio" autoplay="autoplay" loop="loop"></audio>
+    </div>
+
+    <div class="container">
+      <footer class="d-flex flex-wrap justify-content-between align-items-center py-3  row flex-row-reverse">
+        <strong class="col mb-0 pe-0 text-light">
+    
+          <p class="text-light">&copy; 2022 Arcana</p>
+        </strong>
+    
+        <a href="/" class="col-sm-5 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+          <img src="/images/logo.png" style=" width: 112px;">
+        </a>
+    
+        <ul class="col nav justify-content-end list-unstyled d-flex text-light">
+          <li class="ms-3"><a class="text-light" href="#"><i class="bi bi-instagram"></i><use xlink:href="#twitter"/></svg></a></li>
+          <li class="ms-3"><a class="text-light" href="#"><i class="bi bi-whatsapp"></i><use xlink:href="#instagram"/></svg></a></li>
+          <li class="ms-3"><a class="text-light" href="#"><i class="bi bi-facebook"></i></svg></a></li>
+        </ul>
+      </footer>
+
+    </div>
+
+    <script src="/scripts/scripts.js"></script>
+</body>
+</html>

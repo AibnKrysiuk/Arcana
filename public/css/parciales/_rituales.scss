@@ -1,0 +1,107 @@
+h1, h3 {
+    font-family: 'Uncial Antiqua', cursive;
+}
+.hero-trans{
+    background-color: rgba(0, 0, 0, 0.507) !important;
+    border-radius: 8px !important;
+}
+.cardd{
+    background: #00000085;
+    color: white;
+    -webkit-box-shadow: 0 8px 32px 0 rgba(19, 20, 20, 0.37);
+    box-shadow: inset 0px 1px 32px 0 #0000005e;
+    backdrop-filter: blur(2.5px);
+    -webkit-backdrop-filter: blur(2.5px);
+    border-radius: 7px;
+    border: 4px solid #0000003d;
+}
+.card{
+    margin: 6px;
+    background: #073f504f;
+    color: black;
+box-shadow: 0 8px 32px 0 rgba(19, 20, 20, 0.37);
+backdrop-filter: blur( 2.5px );
+-webkit-backdrop-filter: blur( 2.5px );
+border-radius: 7px;
+border: 1px solid rgba(5, 5, 5, 0.18);
+}
+.fonddd{
+    background-color: rgba(15, 26, 9, 0.445);
+    border: 1px solid rgba(41, 104, 4, 0.39) !important;
+    box-shadow: 0 8px 32px 0 rgba(53, 78, 53, 0.301) !important;
+ }
+ .fonddd:hover{
+     background-color: rgba(5, 5, 5, 0.651);
+     transition: 0.5s;
+ 
+ }
+
+
+.modal-title {
+    font-family: 'Uncial Antiqua', cursive;
+}
+.modal-content{
+    background-color: #1f422475;
+    border: 2px solid #6c6c6cb5;
+    box-shadow: 0 8px 32px 0 #23c57154;
+    backdrop-filter: blur( 2px );
+    color: white;
+}
+.cssbuttons-io-button {
+    background: #0e280ab8;
+    color: white;
+    font-family: 'Uncial Antiqua', cursive;
+    padding: 0.35em;
+    padding-left: 1.2em;
+    font-size: 17px;
+    font-weight: 500;
+    border-radius: 0.9em;
+    border: none;
+    letter-spacing: 0.05em;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-shadow: inset 0 0 1.6em -0.6em #edefed;
+    box-shadow: inset 0 0 1.6em -0.6em #169100a3;
+    overflow: hidden;
+    position: relative;
+    height: 2.8em;
+    padding-right: 3.3em;
+   }
+   
+   .cssbuttons-io-button .icon {
+    background: white;
+    margin-left: 1em;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.2em;
+    width: 2.2em;
+    border-radius: 0.7em;
+    box-shadow: 0.1em 0.1em 0.6em 0.2em #169100a3;
+    right: 0.3em;
+    transition: all 0.3s;
+   }
+   
+   .cssbuttons-io-button:hover .icon {
+    width: calc(100% - 0.6em);
+   }
+   
+   .cssbuttons-io-button .icon svg {
+    width: 1.1em;
+    transition: transform 0.3s;
+    color: #169100a3;
+   }
+   
+   .cssbuttons-io-button:hover .icon svg {
+    transform: translateX(0.1em);
+   }
+   
+   .cssbuttons-io-button:active .icon {
+    transform: scale(0.95);
+   }
+   

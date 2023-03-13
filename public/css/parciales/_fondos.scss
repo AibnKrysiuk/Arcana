@@ -1,0 +1,34 @@
+@import '../parciales/navBar';
+
+.fondo-aire {
+    background-image: url("../../images/aire.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    @include color(black);
+}
+
+.fondo-agua {
+    background-image: url("../../images/agua.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    @include color(black);
+}
+.fondo-fuego {
+    background-image: url("../../images/fuego.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    @include color(whitesmoke);
+}
+.fondo-tierra {
+    background-image: url("../../images/bosque.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
